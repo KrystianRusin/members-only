@@ -1,6 +1,7 @@
 const User = require("../models/user");
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
+const passport = require("passport");
 const bcrypt = require("bcryptjs");
 
 exports.user_create_post = [
@@ -47,3 +48,22 @@ exports.user_create_post = [
     }
   }),
 ];
+
+exports.user_login_post = (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      req.flash("error", "Invalid username or password.");
+      return res.redirect("/");
+    }
+    req.logIn(user, function (err) {
+      if (err) {
+        return next(err);
+      }
+      req.flash("success", "You have successfully logged in.");
+      return res.redirect("/");
+    });
+  })(req, res, next);
+};
