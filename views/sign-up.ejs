@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Members Only</title>
   </head>
   <body>
-    <h1>sign-up</h1>
-    <form method="post" action="/user/sign-up">
+    <%- include('navbar') %>
+    <form method="post" action="/user/sign-up" class="log-in-form">
       <div>
         <label for="first_name">First Name</label>
         <input type="text" id="first_name" name="first_name" />

@@ -3,38 +3,33 @@
   <head>
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="nav-container">
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <% if (user) { %>
-          <li><a href="/user/log-out">Log Out</a></li>
-          <% } else { %>
-          <li><a href="/log-in">Log In</a></li>
-          <li><a href="/sign-up">Sign Up</a></li>
-          <% } %>
-        </ul>
-      </nav>
-    </div>
-    <% if (user) { %>
-    <h1>Welcome, <%= user.username %></h1>
-    <form action="/create-message" method="POST">
+    <%- include('navbar') %> <% if (user) { %>
+    <h1 class="welcome-message">Welcome, <%= user.username %></h1>
+    <form class="create-message-form" action="/create-message" method="POST">
       <input type="text" name="title" placeholder="Enter your title here" />
       <textarea name="message" placeholder="Enter your message here"></textarea>
       <button type="submit">Create Message</button>
     </form>
-    <% } %> <% if (messages) { %> <% messages.forEach(message => { %>
-    <div class="message">
-      <p><%= message.message %></p>
-      <% if (user) {%>
-      <p>Posted by:<%= message.user.username %></p>
-      <% } %> <% if (user && message.user._id.toString() ===
-      user._id.toString()) { %>
-      <a href="/delete-message/<%= message._id %>">Delete</a>
-      <% } %>
+    <% } %>
+    <div class="message-container">
+      <% if (messages) { %> <% messages.forEach(message => { %>
+      <div class="message">
+        <h3><%= message.title %></h3>
+        <p><%= message.message %></p>
+        <% if (user) {%>
+        <p>Posted by: <%= message.user.username %></p>
+        <% } %> <% if (user && message.user._id.toString() ===
+        user._id.toString()) { %>
+        <a href="/delete-message/<%= message._id %>">Delete</a>
+        <% } %>
+      </div>
+      <% }); %> <% } %>
     </div>
-    <% }); %> <% } %>
   </body>
 </html>

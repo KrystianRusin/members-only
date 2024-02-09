@@ -1,8 +1,143 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  font: 14px "Roboto", sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+.nav-container nav {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #add8e6; /* Light blue color */
+  border-radius: 5px;
+}
+
+.nav-container nav a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-container nav a:hover {
+  background-color: #85c1e9; /* Darker shade of light blue */
+}
+
+.welcome-message {
+  text-align: center;
+  color: #333;
+  font-size: 28px;
+  margin: 20px 0;
+}
+
+.create-message-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.create-message-form input,
+.create-message-form textarea {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.create-message-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #add8e6;
+  color: #fff;
+  cursor: pointer;
+}
+
+.create-message-form button:hover {
+  background-color: #85c1e9;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.message {
+  background-color: #ffffff; /* White background */
+  border: 2px solid #add8e6; /* Border color matching the navbar */
+  border-radius: 5px;
+  width: 75%;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.message h3 {
+  font-size: 20px;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.message p {
+  margin: 0 0 10px;
+}
+
+.message a {
+  color: #ff0000;
+  text-decoration: none;
+}
+
+.message a:hover {
+  text-decoration: underline;
+}
+
+.log-in-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.log-in-form div {
+  background-color: #ffffff; /* White background */
+  border-radius: 5px;
+  width: 75%;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.log-in-form label {
+  font-size: 20px;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.log-in-form input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.log-in-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #add8e6;
+  color: #fff;
+  cursor: pointer;
+}
+
+.log-in-form button:hover {
+  background-color: #85c1e9;
 }
