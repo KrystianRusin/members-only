@@ -15,4 +15,6 @@ router.get("/log-in", function (req, res, next) {
 
 router.post("/create-message", messageController.createMessage);
 
+router.get("/delete-message/:id", messageController.deleteMessage);
+
 module.exports = router;

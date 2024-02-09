@@ -67,3 +67,12 @@ exports.user_login_post = (req, res, next) => {
     });
   })(req, res, next);
 };
+
+exports.user_logout_get = (req, res, next) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.log(err);
+    }
+    res.redirect("/");
+  });
+};

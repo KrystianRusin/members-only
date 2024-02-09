@@ -9,8 +9,12 @@
       <nav>
         <ul>
           <li><a href="/">Home</a></li>
+          <% if (user) { %>
+          <li><a href="/user/log-out">Log Out</a></li>
+          <% } else { %>
           <li><a href="/log-in">Log In</a></li>
           <li><a href="/sign-up">Sign Up</a></li>
+          <% } %>
         </ul>
       </nav>
     </div>
@@ -26,6 +30,9 @@
       <p><%= message.message %></p>
       <% if (user) {%>
       <p>Posted by:<%= message.user.username %></p>
+      <% } %> <% if (user && message.user._id.toString() ===
+      user._id.toString()) { %>
+      <a href="/delete-message/<%= message._id %>">Delete</a>
       <% } %>
     </div>
     <% }); %> <% } %>

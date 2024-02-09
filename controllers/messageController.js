@@ -40,3 +40,14 @@ exports.getMessage = [
     }
   }),
 ];
+
+exports.deleteMessage = [
+  asyncHandler(async (req, res, next) => {
+    try {
+      Message.findByIdAndDelete(req.params.id);
+      res.redirect("/");
+    } catch (err) {
+      return next(err);
+    }
+  }),
+];
