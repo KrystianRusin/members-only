@@ -16,6 +16,7 @@ const indexRouter = require("./routes/index");
 const userRouter = require("./routes/user");
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
+const port = process.env.PORT || 3000;
 
 const mongoDb = `mongodb+srv://${username}:${password}@cluster0.qrxok3y.mongodb.net/Members-Only?retryWrites=true&w=majority`;
 
@@ -97,6 +98,8 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-app.listen(3000, () => console.log("app listening on port 3000!"));
+app.listen(port, "0.0.0.0", () =>
+  console.log(`App listening on port ${port}!`)
+);
 
 module.exports = app;
