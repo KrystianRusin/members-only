@@ -14,11 +14,10 @@ const LocalStrategy = require("passport-local").Strategy;
 
 const indexRouter = require("./routes/index");
 const userRouter = require("./routes/user");
-const username = process.env.DB_USERNAME;
-const password = process.env.DB_PASSWORD;
+const db_connect = process.env.DB_CONNECTIONSTRING;
 const port = process.env.PORT || 3000;
 
-const mongoDb = `mongodb+srv://${username}:${password}@cluster0.qrxok3y.mongodb.net/Members-Only?retryWrites=true&w=majority`;
+const mongoDb = db_connect;
 
 mongoose
   .connect(mongoDb, {
