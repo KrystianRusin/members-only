@@ -40,14 +40,14 @@ exports.getMessage = [
     }
   }),
 ];
+exports.deleteMessage = asyncHandler(async (req, res, next) => {
+  const id = req.params.id;
 
-exports.deleteMessage = [
-  asyncHandler(async (req, res, next) => {
-    try {
-      Message.findByIdAndDelete(req.params.id);
-      res.redirect("/");
-    } catch (err) {
-      return next(err);
-    }
-  }),
-];
+  try {
+    await Message.findByIdAndDelete(id);
+    // Redirect to home page
+    res.redirect("/");
+  } catch (err) {
+    return next(err);
+  }
+});
