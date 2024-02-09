@@ -14,10 +14,20 @@
         </ul>
       </nav>
     </div>
-    <% if (messages.error) { %>
-    <div class="alert alert-danger"><%= messages.error %></div>
-    <% } %> <% if (messages.success) { %>
-    <div class="alert alert-success"><%= messages.success %></div>
-    <% } %>
+    <% if (user) { %>
+    <h1>Welcome, <%= user.username %></h1>
+    <form action="/create-message" method="POST">
+      <input type="text" name="title" placeholder="Enter your title here" />
+      <textarea name="message" placeholder="Enter your message here"></textarea>
+      <button type="submit">Create Message</button>
+    </form>
+    <% } %> <% if (messages) { %> <% messages.forEach(message => { %>
+    <div class="message">
+      <p><%= message.message %></p>
+      <% if (user) {%>
+      <p>Posted by:<%= message.user.username %></p>
+      <% } %>
+    </div>
+    <% }); %> <% } %>
   </body>
 </html>
